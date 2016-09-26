@@ -19,6 +19,6 @@ Gem::Specification.new do |s|
   s.test_files = `git ls-files -- spec/*`.split("\n")
 
   s.add_runtime_dependency(%q<nokogiri-happymapper>, "~>0.5")
-  s.add_runtime_dependency(%q<activesupport>, "~>4")
+  s.add_runtime_dependency(%q<activesupport>, ">= 4")
   s.add_development_dependency(%q<rspec>, "~>3.5")
 end
