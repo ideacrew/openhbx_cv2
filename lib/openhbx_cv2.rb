@@ -31,5 +31,6 @@ module Openhbx
     autoload :ResponsibleParty
     autoload :TradingPartnerCoverageEvent
     autoload :TradingPartnerCoverageEventContext
+    autoload :Individual
   end
 end
