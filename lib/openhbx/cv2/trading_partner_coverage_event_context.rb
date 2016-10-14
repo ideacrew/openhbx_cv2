@@ -8,6 +8,7 @@ module Openhbx::Cv2
     namespace 'cv'
 
     element :transaction_id, String, tag: "transaction_id"
+    element :effective_date, String, tag: "effective_date"
     element :trading_partner_id, String, tag: "trading_partner_id"
     element :marketplace_type, String, tag: "marketplace_type"
     element :coverage_action, String, tag: "coverage_action"

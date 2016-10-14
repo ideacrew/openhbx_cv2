@@ -6,12 +6,14 @@ describe Openhbx::Cv2::TradingPartnerCoverageEventContext, "given a sample xml" 
   let(:market) { "SHOP" }
   let(:coverage_action) { "CANCEL" }
   let(:coverage_action_reason) { "marriage" }
+  let(:effective_date) { "20081203" }
 
   let(:input_xml) { 
 <<-XMLDOC
 <?xml version='1.0' encoding='utf-8' ?>
 <event_context xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://openhbx.org/api/terms/1.0'>
   <transaction_id>#{transaction_id}</transaction_id>
+  <effective_date>#{effective_date}</effective_date>
   <trading_partner_id>#{trading_partner_id}</trading_partner_id>
   <marketplace_type>#{market}</marketplace_type>
   <coverage_action>#{coverage_action}</coverage_action>
@@ -29,6 +31,10 @@ XMLDOC
 
   it "has the correct transaction_id" do
     expect(subject.transaction_id).to eq transaction_id
+  end
+
+  it "has the correct effective_date" do
+    expect(subject.effective_date).to eq effective_date
   end
 
   it "has the correct trading_partner_id" do

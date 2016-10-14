@@ -8,6 +8,7 @@ module Openhbx::Cv2
     namespace 'cv'
 
     element :id, String, tag: "id/cv:id"
+    element :e_case_id, String, tag: "e_case_id"
     element :primary_family_member_id, String, tag: "primary_family_member_id/cv:id"
     has_many :family_members, ::Openhbx::Cv2::FamilyMember, xpath: "cv:family_members"
     has_many :households, ::Openhbx::Cv2::FamilyHousehold, xpath: "cv:households"

@@ -3,6 +3,7 @@ require "spec_helper"
 describe Openhbx::Cv2::Family, "given a sample xml" do
   let(:family_id) { "exchange assigned family id" }
   let(:primary_family_member_id) { "primary_family_member_id" }
+  let(:e_case_id) { "an e case id" }
 
   let(:input_xml) { 
 <<-XMLDOC
@@ -19,6 +20,7 @@ describe Openhbx::Cv2::Family, "given a sample xml" do
   <primary_family_member_id>
     <id>#{primary_family_member_id}</id>
   </primary_family_member_id>
+  <e_case_id>#{e_case_id}</e_case_id>
   <households>
     <household />
     <household />
@@ -34,6 +36,10 @@ XMLDOC
 
   it "has the correct id" do
     expect(subject.id).to eq family_id
+  end
+
+  it "has the correct e_case_id" do
+    expect(subject.e_case_id).to eq e_case_id
   end
 
   it "has the primary_family_member_id" do
