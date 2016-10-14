@@ -32,5 +32,9 @@ module Openhbx
     autoload :TradingPartnerCoverageEvent
     autoload :TradingPartnerCoverageEventContext
     autoload :Individual
+    autoload :Family
+    autoload :FamilyMember
+    autoload :FamilyHousehold
+    autoload :IrsGroup
   end
 end
