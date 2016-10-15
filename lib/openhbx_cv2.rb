@@ -37,6 +37,7 @@ module Openhbx
     autoload :FamilyHousehold
     autoload :IrsGroup
     autoload :CoverageHousehold
+    autoload :CoverageHouseholdMember
     autoload :TaxHousehold
   end
 end
