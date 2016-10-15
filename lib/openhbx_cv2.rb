@@ -39,5 +39,6 @@ module Openhbx
     autoload :CoverageHousehold
     autoload :CoverageHouseholdMember
     autoload :TaxHousehold
+    autoload :TaxHouseholdMember
   end
 end
