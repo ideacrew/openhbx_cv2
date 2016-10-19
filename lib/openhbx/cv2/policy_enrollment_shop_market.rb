@@ -8,6 +8,6 @@ module Openhbx::Cv2
     namespace 'cv'
 
     element "total_employer_responsible_amount", String, tag: "total_employer_responsible_amount"
-    has_one "employer", Openhbx::Cv2::EmployerLink, tag: "employer"
+    has_one "employer_link", Openhbx::Cv2::EmployerLink, tag: "employer_link"
   end
 end

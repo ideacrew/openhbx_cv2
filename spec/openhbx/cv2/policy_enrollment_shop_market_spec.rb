@@ -7,7 +7,7 @@ describe Openhbx::Cv2::PolicyEnrollmentShopMarket, "given a sample xml" do
 <<-XMLDOC
 <?xml version='1.0' encoding='utf-8' ?>
 <shop_market xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://openhbx.org/api/terms/1.0'>
-  <employer />
+  <employer_link />
   <total_employer_responsible_amount>#{total_employer_responsible_amount}</total_employer_responsible_amount>
 </shop_market>
 XMLDOC
@@ -20,6 +20,6 @@ XMLDOC
   end
 
   it "has an employer link" do
-    expect(subject.employer).to be_a_kind_of(Openhbx::Cv2::EmployerLink)
+    expect(subject.employer_link).to be_a_kind_of(Openhbx::Cv2::EmployerLink)
   end
 end

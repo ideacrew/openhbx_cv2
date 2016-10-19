@@ -4,7 +4,7 @@ module Openhbx::Cv2
     include ::Openhbx::Cv2::Namespace
 
     register_namespace "cv", NS_URI
-    tag 'employer'
+    tag 'employer_link'
     namespace 'cv'
 
     element :id, String, tag: "id/cv:id"

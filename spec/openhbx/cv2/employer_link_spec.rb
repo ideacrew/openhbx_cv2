@@ -8,13 +8,13 @@ describe Openhbx::Cv2::EmployerLink, "given a sample xml" do
   let(:input_xml) { 
 <<-XMLDOC
 <?xml version='1.0' encoding='utf-8' ?>
-<employer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://openhbx.org/api/terms/1.0'>
+<employer_link xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://openhbx.org/api/terms/1.0'>
   <id>
     <id>#{employer_id}</id>
   </id>
   <name>#{name}</name>
   <dba>#{dba}</dba>
-</employer>
+</employer_link>
 XMLDOC
   }
 
