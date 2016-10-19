@@ -10,10 +10,14 @@ describe Openhbx::Cv2::PersonRelationship, "given a sample xml" do
 <<-XMLDOC
 <?xml version='1.0' encoding='utf-8' ?>
 <person_relationship xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://openhbx.org/api/terms/1.0'>
-  <subject_individual>#{subject_individual}</subject_individual>
+  <subject_individual>
+    <id>#{subject_individual}</id>
+  </subject_individual>
   <relationship_uri>#{relationship_uri}</relationship_uri>
   <inverse_relationship_uri>#{inverse_relationship_uri}</inverse_relationship_uri>
-  <object_individual>#{object_individual}</object_individual>
+  <object_individual>
+    <id>#{object_individual}</id>
+  </object_individual>
 </person_relationship>
 XMLDOC
   }

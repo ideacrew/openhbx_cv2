@@ -8,10 +8,10 @@ module Openhbx
       tag 'person_relationship'
       namespace 'cv'
 
-      element :subject_individual, String, tag: "subject_individual"
+      element :subject_individual, String, tag: "subject_individual/cv:id"
       element :relationship_uri, String, tag: "relationship_uri"
       element :inverse_relationship_uri, String, tag: "inverse_relationship_uri"
-      element :object_individual, String, tag: "object_individual"
+      element :object_individual, String, tag: "object_individual/cv:id"
     end
   end
 end
