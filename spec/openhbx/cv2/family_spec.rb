@@ -4,6 +4,15 @@ describe Openhbx::Cv2::Family, "given a sample xml" do
   let(:family_id) { "exchange assigned family id" }
   let(:primary_family_member_id) { "primary_family_member_id" }
   let(:e_case_id) { "an e case id" }
+  let(:created_at_value) { 
+    dt_value = DateTime.now - 1000
+    Time.mktime(dt_value.year, dt_value.month, dt_value.day, dt_value.hour, dt_value.minute, dt_value.second)
+  }
+  let(:updated_at_value) { 
+    dt_value = DateTime.now
+    Time.mktime(dt_value.year, dt_value.month, dt_value.day, dt_value.hour, dt_value.minute, dt_value.second)
+  }
+
 
   let(:input_xml) { 
 <<-XMLDOC
@@ -28,6 +37,8 @@ describe Openhbx::Cv2::Family, "given a sample xml" do
   <irs_groups>
     <irs_group />
   </irs_groups>
+  <created_at>#{created_at_value.iso8601}</created_at>
+  <updated_at>#{updated_at_value.iso8601}</updated_at>
 </family>
 XMLDOC
   }
@@ -56,5 +67,13 @@ XMLDOC
 
   it "has 1 irs_group" do
     expect(subject.irs_groups.length).to eq 1
+  end
+
+  it "has the correct updated_at" do
+    expect(subject.updated_at).to eq updated_at_value
+  end
+
+  it "has the correct created_at" do
+    expect(subject.created_at).to eq created_at_value
   end
 end
