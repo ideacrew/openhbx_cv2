@@ -14,6 +14,6 @@ module Openhbx::Cv2
     has_many :households, ::Openhbx::Cv2::FamilyHousehold, xpath: "cv:households"
     has_many :irs_groups, ::Openhbx::Cv2::IrsGroup, xpath: "cv:irs_groups"
     element :created_at, Time, tag: "created_at"
-    element :updated_at, Time, tag: "updated_at"
+    element :modified_at, Time, tag: "modified_at"
   end
 end

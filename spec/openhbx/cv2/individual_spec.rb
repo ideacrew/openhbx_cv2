@@ -6,7 +6,7 @@ describe Openhbx::Cv2::Individual, "given a sample xml" do
     dt_value = DateTime.now - 1000
     Time.mktime(dt_value.year, dt_value.month, dt_value.day, dt_value.hour, dt_value.minute, dt_value.second)
   }
-  let(:updated_at_value) { 
+  let(:modified_at_value) { 
     dt_value = DateTime.now
     Time.mktime(dt_value.year, dt_value.month, dt_value.day, dt_value.hour, dt_value.minute, dt_value.second)
   }
@@ -21,7 +21,7 @@ describe Openhbx::Cv2::Individual, "given a sample xml" do
   <person />
   <person_demographics />
   <created_at>#{created_at_value.iso8601}</created_at>
-  <updated_at>#{updated_at_value.iso8601}</updated_at>
+  <modified_at>#{modified_at_value.iso8601}</modified_at>
 </individual>
 XMLDOC
   }
@@ -40,8 +40,8 @@ XMLDOC
     expect(subject.person_demographics).to be_kind_of Openhbx::Cv2::PersonDemographics
   end
 
-  it "has the correct updated_at" do
-    expect(subject.updated_at).to eq updated_at_value
+  it "has the correct modified_at" do
+    expect(subject.modified_at).to eq modified_at_value
   end
 
   it "has the correct created_at" do
