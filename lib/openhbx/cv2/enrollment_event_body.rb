@@ -8,7 +8,9 @@ module Openhbx
       tag 'enrollment_event_body'
       namespace 'cv'
 
+      element :transaction_id, String, tag: "transaction_id"
       has_one :enrollment, Enrollment, tag: "enrollment"
+      has_many :affected_members, AffectedMember, xpath: "cv:affected_members"
     end
   end
 end

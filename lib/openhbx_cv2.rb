@@ -44,5 +44,6 @@ module Openhbx
     autoload :EnrollmentEventEvent
     autoload :EnrollmentEventBody
     autoload :Enrollment
+    autoload :AffectedMember
   end
 end
