@@ -9,8 +9,14 @@ module Openhbx
       namespace 'cv'
 
       element :transaction_id, String, tag: "transaction_id"
+      element :is_trading_partner_publishable, String, tag: "is_trading_partner_publishable"
       has_one :enrollment, Enrollment, tag: "enrollment"
       has_many :affected_members, AffectedMember, xpath: "cv:affected_members"
+
+      def publishable?
+        return false if is_trading_partner_publishable.blank?
+        "true" == is_trading_partner_publishable.strip.downcase
+      end
     end
   end
 end

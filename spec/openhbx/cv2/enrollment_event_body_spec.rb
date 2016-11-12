@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Openhbx::Cv2::EnrollmentEventBody, "given a sample xml" do
   let(:transaction_id) { "A transaction id" }
+  let(:t_p_p_val) { "true" }
 
   let(:input_xml) { 
 <<-XMLDOC
@@ -12,6 +13,7 @@ describe Openhbx::Cv2::EnrollmentEventBody, "given a sample xml" do
     <affected_member/>
   </affected_members>
   <transaction_id>#{transaction_id}</transaction_id>
+  <is_trading_partner_publishable>#{t_p_p_val}</is_trading_partner_publishable>
   <enrollment/>
 </enrollment_event_body>
 XMLDOC
@@ -29,5 +31,13 @@ XMLDOC
 
   it "has a transaction id" do
     expect(subject.transaction_id).to eq transaction_id
+  end
+
+  it "has the correct value for is_trading_partner_publishable" do
+    expect(subject.is_trading_partner_publishable).to eq t_p_p_val
+  end
+
+  it "has the correct value for #publishable?" do
+    expect(subject.publishable?).to be_truthy
   end
 end
