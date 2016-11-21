@@ -8,6 +8,7 @@ module Openhbx
       tag 'enrollment'
       namespace 'cv'
 
+      element :enrollment_type, String, tag: "type"
       has_one :policy, ::Openhbx::Cv2::Policy, tag: "policy"
     end
   end
