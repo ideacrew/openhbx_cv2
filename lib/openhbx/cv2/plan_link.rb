@@ -15,7 +15,9 @@ module Openhbx
       element :is_dental_only, String, tag: "is_dental_only"
       element :coverage_type, String, tag: "coverage_type"
       element :ehb_percent, String, tag: "ehb_percent"
+      element :alias_ids, String, single: false, tag: "id/cv:alias_ids/cv:alias_id/cv:id"
       has_one :carrier, Openhbx::Cv2::CarrierLink, tag: "carrier"
+
     end
   end
 end

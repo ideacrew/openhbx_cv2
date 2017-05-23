@@ -3,6 +3,7 @@ require "spec_helper"
 describe Openhbx::Cv2::PolicyEnrollment, "given a sample xml" do
   let(:premium_total_amount) { "123.45" }
   let(:total_responsible_amount) { "23.45" }
+  let(:rating_area) { "SOME RATING AREA NAME" }
 
   let(:input_xml) { 
 <<-XMLDOC
@@ -13,6 +14,7 @@ describe Openhbx::Cv2::PolicyEnrollment, "given a sample xml" do
   <individual_market />
   <premium_total_amount>#{premium_total_amount}</premium_total_amount>
   <total_responsible_amount>#{total_responsible_amount}</total_responsible_amount>
+  <rating_area>#{rating_area}</rating_area>
   <eligibility_event />
 </enrollment>
 XMLDOC
@@ -42,5 +44,9 @@ XMLDOC
 
   it "has a total_responsible_amount" do
     expect(subject.total_responsible_amount).to eq total_responsible_amount
+  end
+
+  it "has a rating_area" do
+    expect(subject.rating_area).to eq rating_area
   end
 end

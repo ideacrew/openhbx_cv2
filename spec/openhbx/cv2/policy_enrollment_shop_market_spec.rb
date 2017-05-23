@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Openhbx::Cv2::PolicyEnrollmentShopMarket, "given a sample xml" do
   let(:total_employer_responsible_amount) { "93.24" }
+  let(:composite_rating_tier_name) { "A COMPOSITE RATING TIER NAME" }
 
   let(:input_xml) { 
 <<-XMLDOC
@@ -9,6 +10,7 @@ describe Openhbx::Cv2::PolicyEnrollmentShopMarket, "given a sample xml" do
 <shop_market xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://openhbx.org/api/terms/1.0'>
   <employer_link />
   <total_employer_responsible_amount>#{total_employer_responsible_amount}</total_employer_responsible_amount>
+  <composite_rating_tier_name>#{composite_rating_tier_name}</composite_rating_tier_name>
 </shop_market>
 XMLDOC
   }
@@ -17,6 +19,10 @@ XMLDOC
 
   it "has the correct total_employer_responsible_amount" do
     expect(subject.total_employer_responsible_amount).to eq total_employer_responsible_amount
+  end
+
+  it "has the correct composite_rating_teir_name" do
+    expect(subject.composite_rating_tier_name).to eq composite_rating_tier_name
   end
 
   it "has an employer link" do

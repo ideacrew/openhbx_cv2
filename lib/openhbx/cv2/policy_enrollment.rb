@@ -13,5 +13,6 @@ module Openhbx::Cv2
     has_one :individual_market, Openhbx::Cv2::PolicyEnrollmentIndividualMarket, tag: "individual_market"
     element :premium_total_amount, String, tag: "premium_total_amount"
     element :total_responsible_amount, String, tag: "total_responsible_amount"
+    element :rating_area, String, tag: "rating_area"
   end
 end

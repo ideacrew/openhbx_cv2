@@ -8,6 +8,7 @@ module Openhbx::Cv2
     namespace 'cv'
 
     element "total_employer_responsible_amount", String, tag: "total_employer_responsible_amount"
+    element "composite_rating_tier_name", String, tag: "composite_rating_tier_name"
     has_one "employer_link", Openhbx::Cv2::EmployerLink, tag: "employer_link"
   end
 end
