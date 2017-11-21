@@ -8,6 +8,7 @@ module Openhbx
       tag 'enrollment_event'
       namespace 'cv'
 
+      has_one :header, ::Openhbx::Cv2::EnrollmentEventHeader, tag: "header"
       has_one :event, ::Openhbx::Cv2::EnrollmentEventEvent, tag: "event"
     end
   end

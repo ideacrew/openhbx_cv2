@@ -41,6 +41,7 @@ module Openhbx
     autoload :TaxHousehold
     autoload :TaxHouseholdMember
     autoload :EnrollmentEvent
+    autoload :EnrollmentEventHeader
     autoload :EnrollmentEventEvent
     autoload :EnrollmentEventBody
     autoload :Enrollment

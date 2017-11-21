@@ -76,7 +76,6 @@ XMLDOC
   end
 
   it "has the second alias id" do
-    puts "#{subject.alias_ids}"
     expect(subject.alias_ids).to include alias_id_2
   end
 end
