@@ -2,12 +2,14 @@ require "spec_helper"
 
 describe Openhbx::Cv2::Enrollment, "given a sample xml" do
   let(:enrollment_type) { "urn:openhbx:terms:v1:enrollment#initial" }
+  let(:market_type) { "urn:openhbx:terms:v1:aca_marketplace#cobra" } 
 
   let(:input_xml) { 
 <<-XMLDOC
 <?xml version='1.0' encoding='utf-8' ?>
 <enrollment xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://openhbx.org/api/terms/1.0'>
   <type>#{enrollment_type}</type>
+  <market>#{market_type}</market>
   <policy />
 </enrollment>
 XMLDOC
@@ -21,5 +23,9 @@ XMLDOC
 
   it "has the correct type" do
     expect(subject.enrollment_type).to eq enrollment_type
+  end
+
+  it "has the correct market" do
+    expect(subject.market).to eq market_type
   end
 end
