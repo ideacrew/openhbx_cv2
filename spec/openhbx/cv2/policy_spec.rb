@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Openhbx::Cv2::Policy, "given a sample xml" do
   let(:policy_id) { "some hbx issued policy id" }
+  let(:previous_policy_id) { "some hbx issued previous policy id" }
 
   let(:input_xml) { 
 <<-XMLDOC
@@ -10,6 +11,9 @@ describe Openhbx::Cv2::Policy, "given a sample xml" do
   <id>
     <id>#{policy_id}</id>
   </id>
+  <previous_policy_id>
+    <id>#{previous_policy_id}</id>
+  </previous_policy_id>
   <broker />
   <enrollees>
     <enrollee/>
@@ -26,6 +30,10 @@ XMLDOC
 
   it "has the correct policy id" do
     expect(subject.id).to eq policy_id
+  end
+
+  it "has the correct previous_policy_id" do
+    expect(subject.previous_policy_id).to eq previous_policy_id
   end
 
   it "has a broker link" do
