@@ -35,6 +35,9 @@ module Openhbx
     autoload :Family
     autoload :FamilyMember
     autoload :FamilyHousehold
+    autoload :Contact
+    autoload :OfficeLocation
+    autoload :Organization
     autoload :IrsGroup
     autoload :CoverageHousehold
     autoload :CoverageHouseholdMember

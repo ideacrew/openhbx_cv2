@@ -23,4 +23,44 @@ XMLDOC
   it "has the full_phone_number" do
     expect(subject.full_phone_number).to eq full_phone_number
   end
+
+  it "is not preferred" do
+    expect(subject.is_preferred).to be_falsey
+  end
+end
+
+describe Openhbx::Cv2::Phone, "given a non-preferred phone xml" do
+
+  let(:input_xml) { 
+<<-XMLDOC
+<?xml version='1.0' encoding='utf-8' ?>
+<phone xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://openhbx.org/api/terms/1.0'>
+  <is_preferred>false</is_preferred>
+</phone>
+XMLDOC
+  }
+
+  subject { Openhbx::Cv2::Phone.parse(input_xml, single: true) }
+
+  it "is not preferred" do
+    expect(subject.is_preferred).to be_falsey
+  end
+end
+
+describe Openhbx::Cv2::Phone, "given a preferred phone xml" do
+
+  let(:input_xml) { 
+<<-XMLDOC
+<?xml version='1.0' encoding='utf-8' ?>
+<phone xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns='http://openhbx.org/api/terms/1.0'>
+  <is_preferred>true</is_preferred>
+</phone>
+XMLDOC
+  }
+
+  subject { Openhbx::Cv2::Phone.parse(input_xml, single: true) }
+
+  it "is preferred" do
+    expect(subject.is_preferred).to be_truthy
+  end
 end

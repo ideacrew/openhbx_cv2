@@ -10,6 +10,7 @@ module Openhbx
 
       element :type, String, tag: "type"
       element :full_phone_number, String, tag: "full_phone_number"
+      element :is_preferred, Boolean, tag: "is_preferred", default: false
     end
   end
 end
