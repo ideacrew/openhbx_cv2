@@ -9,6 +9,7 @@ module Openhbx
       namespace 'cv'
 
       element :enrollment_type, String, tag: "type"
+      element :qualifying_reason, String, tag: "qualifying_reason"
       element :market, String, tag: "market"
       has_one :policy, ::Openhbx::Cv2::Policy, tag: "policy"
     end
