@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.date = %q{2016-09-26}
   s.description = %q{CV2 parsers for the openhbx suite.}
   s.files = `git ls-files -- lib/*`.split("\n")
-  s.homepage = %q{http://github.com/dchbx/openhbx_cv2}
+  s.homepage = %q{http://github.com/ideacrew/openhbx_cv2}
   s.require_paths = ["lib"]
   s.summary = %q{Provides objects representing the CV2 XML.}
   s.license = "MIT"
