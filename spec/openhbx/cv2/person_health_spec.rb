@@ -68,11 +68,36 @@ XMLDOC
 
   subject { Openhbx::Cv2::PersonHealth.parse(input_xml, single: true) }
 
+  it "does have is_disabled" do
+    expect(subject.disability_value).to be_truthy
+  end
+
+  it "has tobacco use value nil" do
+    expect(subject.tobacco_use_value).to eq nil
+  end
+end
+
+describe Openhbx::Cv2::PersonHealth, "given a sample xml, with no for tobacco and true disability" do
+  let(:is_disabled) { "true" }
+  let(:is_tobacco_user) { "false" }
+
+  let(:input_xml) { 
+<<-XMLDOC
+<?xml version='1.0' encoding='utf-8' ?>
+  <person_health xmlns='http://openhbx.org/api/terms/1.0'>
+    <is_disabled>#{is_disabled}</is_disabled>
+    <is_tobacco_user>#{is_tobacco_user}</is_tobacco_user>
+  </person_health>
+XMLDOC
+  }
+
+  subject { Openhbx::Cv2::PersonHealth.parse(input_xml, single: true) }
+
   it "does has is_disabled" do
     expect(subject.disability_value).to be_truthy
   end
 
-  it "has tobacco use value NA" do
-    expect(subject.tobacco_use_value).to eq nil
+  it "has tobacco use value 'N'" do
+    expect(subject.tobacco_use_value).to eq 'N'
   end
 end
