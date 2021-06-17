@@ -41,6 +41,7 @@ describe Openhbx::Cv2::EnrolleeMember, "given a sample xml" do
   <is_enrolled_in_employer_sponsored_coverage>#{is_enrolled_in_employer_sponsored_coverage}</is_enrolled_in_employer_sponsored_coverage>
   <is_insurance_assistance_eligible>#{is_insurance_assistance_eligible}</is_insurance_assistance_eligible>
   <is_medicaid_chip_eligible>#{is_medicaid_chip_eligible}</is_medicaid_chip_eligible>
+  <person_health></person_health>
 </member>
 XMLDOC
   }
@@ -99,4 +100,15 @@ XMLDOC
     expect(subject.employee_roles.length).to eq 3
   end
 
+  it "has a person health section" do
+    expect(subject.person_health).not_to eq nil
+  end
+
+  it "is not marked as disabled" do
+    expect(subject.disability_value).to eq false
+  end
+
+  it "is marked tobacco use unknown" do
+    expect(subject.tobacco_use_value).to eq nil
+  end
 end

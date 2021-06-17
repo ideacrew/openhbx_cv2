@@ -16,6 +16,7 @@ module Openhbx
     autoload :CarrierLink
     autoload :EmployerLink
     autoload :PlanLink
+    autoload :PersonHealth
     autoload :Person
     autoload :PersonRelationship
     autoload :PersonDemographics

@@ -21,9 +21,17 @@ module Openhbx::Cv2
     element :is_medicaid_chip_eligible, String, tag: "is_medicaid_chip_eligible"
     has_many :employee_roles, Openhbx::Cv2::EmployeeRole, xpath: "cv:employee_roles"
 
+    has_one :person_health, Openhbx::Cv2::PersonHealth
+
     delegate :first_name, :middle_name, :last_name, :name_prefix, :name_suffix, to: :person, allow_nil: true
     delegate :ssn, :sex, :birth_date, :death_date, to: :person_demographics, allow_nil: true
 
     delegate :home_address, :mailing_address, to: :person, allow_nil: true
+
+    delegate :tobacco_use_value, to: :person_health, allow_nil: true
+
+    def disability_value
+      (person_health == nil) ? false : person_health.disability_value
+    end
   end
 end
