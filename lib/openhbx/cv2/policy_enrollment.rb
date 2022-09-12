@@ -14,5 +14,6 @@ module Openhbx::Cv2
     element :premium_total_amount, String, tag: "premium_total_amount"
     element :total_responsible_amount, String, tag: "total_responsible_amount"
     element :rating_area, String, tag: "rating_area"
+    has_many :premium_credits, ::Openhbx::Cv2::PremiumCredit, xpath: "cv:premium_credits"
   end
 end
