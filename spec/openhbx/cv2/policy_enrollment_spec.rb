@@ -14,6 +14,11 @@ describe Openhbx::Cv2::PolicyEnrollment, "given a sample xml" do
   <individual_market />
   <premium_total_amount>#{premium_total_amount}</premium_total_amount>
   <total_responsible_amount>#{total_responsible_amount}</total_responsible_amount>
+  <premium_credits>
+    <premium_credit/>
+    <premium_credit/>
+    <premium_credit/>
+  </premium_credits>
   <rating_area>#{rating_area}</rating_area>
   <eligibility_event />
 </enrollment>
@@ -48,5 +53,10 @@ XMLDOC
 
   it "has a rating_area" do
     expect(subject.rating_area).to eq rating_area
+  end
+
+  it "has premium credits" do
+    expect(subject.premium_credits.first.class).to eq ::Openhbx::Cv2::PremiumCredit
+    expect(subject.premium_credits.count).to eq 3
   end
 end
