@@ -4,21 +4,33 @@ on: push
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Ruby 2.3.1
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.3.1
-        bundler: 1.12.5
-    - name: Cache Gems
-      uses: actions/cache@v1
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+    - name: Get Packages for Ruby Prerequisites
+      run: |
+        sudo apt-get -y update
+        sudo apt-get -y install git libntirpc-dev libxml2 libxml2-dev curl libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
+    - name: Install libssl1.0-dev from bionic sources
+      run: |
+        echo 'deb http://security.ubuntu.com/ubuntu bionic-security main' | sudo tee -a /etc/apt/sources.list.d/bionic-security.list
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
+        sudo apt update && apt-cache policy libssl1.0-dev
+        sudo apt-get -y install libssl1.0-dev
+        sudo apt-get -y install gcc-9 g++-9
+    - name: Install Ruby
+      run: |
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 100
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 100
+        sudo update-alternatives --set gcc /usr/bin/gcc-9
+        sudo update-alternatives --set g++ /usr/bin/g++-9
+        curl -O https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.bz2
+        tar xjf ruby-2.3.1.tar.bz2
+        cd ruby-2.3.1 && ./configure --disable-install-doc --disable-install-rdoc --disable-install-capi && make -j 2
+        sudo make install
+    - name: Install Bundler
+      run: |
+        sudo gem install bundler -v 1.17.3
     - name: Install Gems
       run: |
         bundle config path vendor/bundle
