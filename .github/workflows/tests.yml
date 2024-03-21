@@ -11,6 +11,7 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.3.1
+        bundler: 1.12.5
     - name: Cache Gems
       uses: actions/cache@v1
       with:
