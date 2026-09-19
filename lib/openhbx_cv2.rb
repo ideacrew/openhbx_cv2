@@ -23,7 +23,6 @@ module Openhbx
     autoload :EligibilityEvent
     autoload :EmployeeRole
     autoload :Policy
-    autoload :PremiumCredit
     autoload :PolicyEnrollment
     autoload :PolicyEnrollmentIndividualMarket
     autoload :PolicyEnrollmentShopMarket

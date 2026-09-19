@@ -1,6 +1,14 @@
 # openhbx_cv2
 CV2 parsers for the openhbx suite.
 
+## GlueDB EOL phase 5b
+
+`gluedb-eol-5b-nokogiri-115` publishes the **d774b23 format tree** plus a
+gemspec/README note. HappyMapper stays `~> 0.5` (works with nokogiri 1.15
+on MRI 2.7.8). Do not float this pin onto later `trunk` format commits
+(OSSE / reinstate / premium_credit) without a GlueDB `spec/contracts`
+C14N proof.
+
 ## License
 
 The software is available as open source under the terms of the MIT License (MIT)

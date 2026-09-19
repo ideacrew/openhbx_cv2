@@ -18,6 +18,10 @@ Gem::Specification.new do |s|
   s.license = "MIT"
   s.test_files = `git ls-files -- spec/*`.split("\n")
 
+  # GlueDB EOL phase 5b: stay on happymapper 0.5.x so this gem resolves
+  # on MRI 2.7.8 + nokogiri ~> 1.15.0 (happymapper 0.5 is nokogiri ~> 1.5).
+  # happymapper 0.10.1 needs Ruby >= 3 — defer that to GlueDB phase 5c.
+  # This commit is gemspec-only on SHA d774b23 (no CV2 format change).
   s.add_runtime_dependency(%q<nokogiri-happymapper>, "~>0.5")
   s.add_runtime_dependency(%q<activesupport>, ">= 3.2")
   s.add_development_dependency(%q<rspec>, "~>3.5")
