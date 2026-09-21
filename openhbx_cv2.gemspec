@@ -18,9 +18,10 @@ Gem::Specification.new do |s|
   s.license = "MIT"
   s.test_files = `git ls-files -- spec/*`.split("\n")
 
-  # GlueDB EOL phase 5c: allow happymapper 0.10.1 (Ruby >= 3) while remaining
-  # compatible with 0.5.x. This commit is gemspec-only on SHA 573fa68
-  # (no CV2 format change; lib/ identical to d774b23 / 573fa68).
+  # GlueDB EOL phase 6b: explicit nokogiri ceiling so 1.18 can resolve.
+  # Happymapper stays >= 0.5, < 0.11 (0.10.1). This commit is gemspec-only
+  # on SHA 87d77ce (lib/ identical to 573fa68 / d774b23).
+  s.add_runtime_dependency(%q<nokogiri>, ">= 1.6", "< 1.20")
   s.add_runtime_dependency(%q<nokogiri-happymapper>, ">= 0.5", "< 0.11")
   s.add_runtime_dependency(%q<activesupport>, ">= 3.2")
   s.add_development_dependency(%q<rspec>, "~>3.5")
